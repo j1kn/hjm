@@ -38,8 +38,7 @@ const Footer = () => {
                 <img
                   src="/logo.png"
                   alt="Hjm Transport"
-                  className="h-14 w-auto"
-                  style={{ background: 'transparent !important' }}
+                  className="h-14 w-auto logo-img"
                 />
               </div>
               <p className="text-sm text-muted-text leading-relaxed">

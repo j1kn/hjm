@@ -56,6 +56,10 @@ img {
   background: linear-gradient(135deg, #16181C 0%, #1E2128 100%);
 }
 
+.logo-img {
+  background: transparent !important;
+}
+
 /* Responsive typography adjustments */
 @media (max-width: 640px) {
   .text-display {

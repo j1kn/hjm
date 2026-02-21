@@ -47,8 +47,7 @@ const Header = () => {
               <img
                 src="/logo.png"
                 alt="HJM Transport"
-                className="h-14 lg:h-16 w-auto"
-                style={{ background: 'transparent !important' }}
+                className="h-14 lg:h-16 w-auto logo-img"
               />
             </button>
 
