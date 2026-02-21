@@ -1,0 +1,81 @@
+/* App-specific styles */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(242, 179, 61, 0.3);
+  color: #F6F7F9;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid #F2B33D;
+  outline-offset: 2px;
+}
+
+/* Button transitions */
+button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Input focus states */
+input:focus,
+textarea:focus {
+  border-color: #F2B33D;
+}
+
+/* Date input styling */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Prevent text selection on interactive elements */
+button,
+[role="button"] {
+  user-select: none;
+}
+
+/* Image loading placeholder */
+img {
+  background: linear-gradient(135deg, #16181C 0%, #1E2128 100%);
+}
+
+/* Responsive typography adjustments */
+@media (max-width: 640px) {
+  .text-display {
+    font-size: clamp(28px, 7vw, 40px);
+  }
+  
+  .text-h2 {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
