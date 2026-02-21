@@ -31,14 +31,13 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
             ? 'bg-charcoal/95 backdrop-blur-lg border-b border-white/10'
             : 'bg-transparent'
-        }`}
+          }`}
       >
         <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center justify-between h-20 lg:h-28">
             {/* Logo - Transparent, no background, no styling */}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -47,7 +46,7 @@ const Header = () => {
               <img
                 src="/logo.png"
                 alt="HJM Transport"
-                className="h-14 lg:h-16 w-auto logo-img"
+                className="h-18 lg:h-24 w-auto logo-img"
               />
             </button>
 
@@ -87,9 +86,8 @@ const Header = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-charcoal/98 backdrop-blur-xl transition-all duration-300 lg:hidden ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}
+        className={`fixed inset-0 z-40 bg-charcoal/98 backdrop-blur-xl transition-all duration-300 lg:hidden ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          }`}
       >
         <div className="flex flex-col items-center justify-center h-full gap-8">
           {navItems.map((item) => (

@@ -38,7 +38,7 @@ const Footer = () => {
                 <img
                   src="/logo.png"
                   alt="Hjm Transport"
-                  className="h-14 w-auto logo-img"
+                  className="h-20 w-auto logo-img"
                 />
               </div>
               <p className="text-sm text-muted-text leading-relaxed">
