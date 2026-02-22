@@ -32,8 +32,8 @@ const Header = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-            ? 'bg-charcoal/95 backdrop-blur-lg border-b border-white/10'
-            : 'bg-transparent'
+          ? 'bg-charcoal/95 backdrop-blur-lg border-b border-white/10'
+          : 'bg-transparent'
           }`}
       >
         <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
@@ -46,7 +46,7 @@ const Header = () => {
               <img
                 src="/logo.png"
                 alt="HJM Transport"
-                className="h-18 lg:h-24 w-auto logo-img"
+                className="h-10 lg:h-16 w-auto logo-img"
               />
             </button>
 
