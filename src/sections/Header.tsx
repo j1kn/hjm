@@ -46,7 +46,7 @@ const Header = () => {
               <img
                 src="/logo.png"
                 alt="HJM Transport"
-                className="h-10 lg:h-16 w-auto logo-img"
+                className="h-12 lg:h-20 w-auto logo-img transition-transform duration-300 hover:scale-105"
               />
             </button>
 
