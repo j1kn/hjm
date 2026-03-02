@@ -23,7 +23,7 @@ function App() {
       setLoading(false);
       // Give a tiny delay before showing content to ensure smooth transition
       setTimeout(() => setShowContent(true), 100);
-    }, 2800); // Total splash duration (1.5s stay + 0.8s fade + buffer)
+    }, 3300); // 1.8s delay + 1.2s fade-out + buffer
 
     return () => clearTimeout(timer);
   }, []);
