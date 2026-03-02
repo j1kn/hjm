@@ -63,8 +63,10 @@ function App() {
           <Contact />
         </main>
         <Footer />
-        <MobileStickyCTA />
       </div>
+
+      {/* Sticky CTA - must be outside the animated wrapper so position:fixed works */}
+      {splashPhase === 'done' && <MobileStickyCTA />}
     </div>
   );
 }
