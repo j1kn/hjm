@@ -42,12 +42,6 @@ function App() {
               alt="HJM Transport"
               className="h-48 lg:h-64 w-auto mb-6"
             />
-            <div className="w-48 h-1 bg-white/10 rounded-full overflow-hidden relative">
-              <div
-                className="absolute inset-0 bg-amber transition-transform duration-[2000ms] origin-left scale-x-0"
-                style={{ transform: loading ? 'scale-x(1)' : 'scale-x(1)' }}
-              />
-            </div>
           </div>
         </div>
       )}
