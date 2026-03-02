@@ -35,12 +35,12 @@ function App() {
 
       {/* Splash Screen */}
       {loading && (
-        <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-charcoal splash-fade-out`}>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal splash-fade-out">
           <div className="splash-fade-in flex flex-col items-center">
             <img
               src="/logo.png"
               alt="HJM Transport"
-              className="h-24 lg:h-32 w-auto mb-4"
+              className="h-48 lg:h-64 w-auto mb-6"
             />
             <div className="w-48 h-1 bg-white/10 rounded-full overflow-hidden relative">
               <div

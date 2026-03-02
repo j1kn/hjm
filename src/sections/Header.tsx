@@ -37,7 +37,7 @@ const Header = () => {
           }`}
       >
         <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
-          <div className="flex items-center justify-between h-20 lg:h-28">
+          <div className="flex items-center justify-between h-24 lg:h-36">
             {/* Logo - Transparent, no background, no styling */}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -46,7 +46,7 @@ const Header = () => {
               <img
                 src="/logo.png"
                 alt="HJM Transport"
-                className="h-12 lg:h-20 w-auto logo-img transition-transform duration-300 hover:scale-105"
+                className="h-16 lg:h-28 w-auto logo-img transition-transform duration-300 hover:scale-105"
               />
             </button>
 
