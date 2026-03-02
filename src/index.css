@@ -226,7 +226,7 @@
   }
 
   .splash-fade-out {
-    animation: splashFadeOut 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: splashFadeOut 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.5s forwards;
   }
 
   .content-fade-in {
