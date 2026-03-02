@@ -17,8 +17,27 @@ const Contact = () => {
     e.preventDefault();
     setFormState('loading');
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Generate mailto link for static form submission
+    const subject = encodeURIComponent(`Quote Request: ${formData.fullName}`);
+    const body = encodeURIComponent(
+      `New quote request details:\n\n` +
+      `• Name: ${formData.fullName}\n` +
+      `• Email: ${formData.email}\n` +
+      `• Phone: ${formData.phone}\n` +
+      `• Pickup: ${formData.pickupPostcode}\n` +
+      `• Dropoff: ${formData.dropoffPostcode}\n` +
+      `• Date: ${formData.preferredDate || 'Asap'}\n\n` +
+      `Load Details:\n${formData.loadDetails}`
+    );
+
+    const mailtoUrl = `mailto:Frieght@hjmtransport.uk?subject=${subject}&body=${body}`;
+
+    // Simulate form submission delay
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    // Open email client with pre-filled details
+    window.location.href = mailtoUrl;
+
     setFormState('success');
 
     // Reset after showing success
@@ -33,7 +52,7 @@ const Contact = () => {
         loadDetails: '',
         preferredDate: '',
       });
-    }, 3000);
+    }, 5000);
   };
 
   const handleChange = (
@@ -90,9 +109,12 @@ const Contact = () => {
                     <p className="text-xs text-muted-text uppercase tracking-wider">
                       Email
                     </p>
-                    <p className="text-off-white text-sm">
-                      enquiries@hjmtransport.uk
-                    </p>
+                    <a
+                      href="mailto:Frieght@hjmtransport.uk"
+                      className="text-off-white text-sm hover:text-amber transition-colors"
+                    >
+                      Frieght@hjmtransport.uk
+                    </a>
                   </div>
                 </div>
 
@@ -104,9 +126,12 @@ const Contact = () => {
                     <p className="text-xs text-muted-text uppercase tracking-wider">
                       Phone
                     </p>
-                    <p className="text-off-white text-sm">
+                    <a
+                      href="tel:+447387344777"
+                      className="text-off-white text-sm hover:text-amber transition-colors"
+                    >
                       +44 7387 344777
-                    </p>
+                    </a>
                   </div>
                 </div>
 
@@ -134,10 +159,10 @@ const Contact = () => {
                     <Check size={32} className="text-amber" />
                   </div>
                   <h3 className="font-heading font-semibold text-xl text-off-white mb-2">
-                    Quote requested!
+                    Message Prepared!
                   </h3>
                   <p className="text-muted-text text-sm">
-                    We'll be in touch within 10 minutes.
+                    Please send the email that just opened to complete your request.
                   </p>
                 </div>
               ) : (
