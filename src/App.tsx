@@ -12,20 +12,24 @@ import MobileStickyCTA from './sections/MobileStickyCTA';
 import './App.css';
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
+  // 3-phase splash: 'entering' → 'exiting' → 'done'
+  const [splashPhase, setSplashPhase] = useState<'entering' | 'exiting' | 'done'>('entering');
 
   useEffect(() => {
-    // Stage 1: Initial fade in and hold (0.8s)
-    // Stage 2: Fade out (0.6s)
-    // Stage 3: Show main content
-    const timer = setTimeout(() => {
-      setLoading(false);
-      // Give a tiny delay before showing content to ensure smooth transition
-      setTimeout(() => setShowContent(true), 100);
-    }, 3300); // 1.8s delay + 1.2s fade-out + buffer
+    // Phase 1: Logo fades in (1.5s animation) + hold for 0.5s
+    const enterTimer = setTimeout(() => {
+      setSplashPhase('exiting');
+    }, 2000);
 
-    return () => clearTimeout(timer);
+    // Phase 2: Logo fades out (1.2s animation), then remove splash
+    const exitTimer = setTimeout(() => {
+      setSplashPhase('done');
+    }, 3400);
+
+    return () => {
+      clearTimeout(enterTimer);
+      clearTimeout(exitTimer);
+    };
   }, []);
 
   return (
@@ -34,20 +38,20 @@ function App() {
       <div className="grain-overlay" />
 
       {/* Splash Screen */}
-      {loading && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal splash-fade-out">
-          <div className="splash-fade-in flex flex-col items-center">
-            <img
-              src="/logo.png"
-              alt="HJM Transport"
-              className="h-48 lg:h-64 w-auto mb-6 logo-img"
-            />
-          </div>
+      {splashPhase !== 'done' && (
+        <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-charcoal transition-opacity duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${splashPhase === 'exiting' ? 'opacity-0' : 'opacity-100'
+          }`}>
+          <img
+            src="/logo.png"
+            alt="HJM Transport"
+            className={`h-48 lg:h-64 w-auto logo-img splash-logo ${splashPhase === 'exiting' ? 'splash-logo-exit' : ''
+              }`}
+          />
         </div>
       )}
 
       {/* Main Website Content */}
-      <div className={`${showContent ? 'content-fade-in' : 'opacity-0'}`}>
+      <div className={`${splashPhase === 'done' ? 'content-fade-in' : 'opacity-0'}`}>
         <Header />
         <main>
           <Hero />

@@ -86,9 +86,18 @@ const Header = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-charcoal/98 backdrop-blur-xl transition-all duration-300 lg:hidden ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        className={`fixed inset-0 z-[60] bg-charcoal/98 backdrop-blur-xl transition-all duration-300 lg:hidden ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
           }`}
       >
+        {/* Close button inside overlay */}
+        <div className="absolute top-0 right-0 p-6">
+          <button
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="p-2 text-off-white"
+          >
+            <X size={28} />
+          </button>
+        </div>
         <div className="flex flex-col items-center justify-center h-full gap-8">
           {navItems.map((item) => (
             <button

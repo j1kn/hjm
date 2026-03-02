@@ -183,38 +183,44 @@
     border-color: #F2B33D;
   }
 
-  @keyframes splashFadeIn {
+  @keyframes logoEntrance {
     0% {
       opacity: 0;
-      transform: scale(0.96);
-      filter: blur(8px);
+      transform: scale(0.92) translateY(12px);
+      filter: blur(6px);
     }
 
-    100% {
+    60% {
       opacity: 1;
-      transform: scale(1);
-      filter: blur(0);
-    }
-  }
-
-  @keyframes splashFadeOut {
-    0% {
-      opacity: 1;
-      transform: scale(1);
+      transform: scale(1.02) translateY(0);
       filter: blur(0);
     }
 
     100% {
-      opacity: 0;
-      transform: scale(1.03);
-      filter: blur(4px);
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      filter: blur(0);
     }
   }
 
-  @keyframes contentFadeIn {
+  @keyframes logoExit {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(1.06);
+      filter: blur(6px);
+    }
+  }
+
+  @keyframes contentRise {
     0% {
       opacity: 0;
-      transform: translateY(15px);
+      transform: translateY(16px);
     }
 
     100% {
@@ -223,19 +229,16 @@
     }
   }
 
-  .splash-fade-in {
-    /* 1.5s smooth entry */
-    animation: splashFadeIn 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  .splash-logo {
+    animation: logoEntrance 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  .splash-fade-out {
-    /* Wait 1.8s then 1.2s smooth exit */
-    animation: splashFadeOut 1.2s cubic-bezier(0.23, 1, 0.32, 1) 1.8s forwards;
+  .splash-logo-exit {
+    animation: logoExit 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .content-fade-in {
-    /* 1.5s content rise */
-    animation: contentFadeIn 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation: contentRise 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 }
 
