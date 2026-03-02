@@ -40,7 +40,7 @@ function App() {
             <img
               src="/logo.png"
               alt="HJM Transport"
-              className="h-48 lg:h-64 w-auto mb-6"
+              className="h-48 lg:h-64 w-auto mb-6 logo-img"
             />
           </div>
         </div>
