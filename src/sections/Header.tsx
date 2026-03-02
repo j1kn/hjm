@@ -13,12 +13,26 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
+  const scrollToSection = (id: string) => {
+    setIsMobileMenuOpen(false);
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   const navItems = [
@@ -38,10 +52,10 @@ const Header = () => {
       >
         <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="flex items-center justify-between h-24 lg:h-36">
-            {/* Logo - Transparent, no background, no styling */}
+            {/* Logo */}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="flex items-center"
+              className="flex items-center relative z-[70]"
             >
               <img
                 src="/logo.png"
@@ -73,12 +87,13 @@ const Header = () => {
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - always on top */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-off-white"
+              className="lg:hidden p-2 text-off-white relative z-[70]"
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
@@ -86,18 +101,11 @@ const Header = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-[60] bg-charcoal/98 backdrop-blur-xl transition-all duration-300 lg:hidden ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+        className={`fixed inset-0 z-[60] bg-charcoal backdrop-blur-xl transition-all duration-300 lg:hidden ${isMobileMenuOpen
+            ? 'opacity-100 visible'
+            : 'opacity-0 invisible pointer-events-none'
           }`}
       >
-        {/* Close button inside overlay */}
-        <div className="absolute top-0 right-0 p-6">
-          <button
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="p-2 text-off-white"
-          >
-            <X size={28} />
-          </button>
-        </div>
         <div className="flex flex-col items-center justify-center h-full gap-8">
           {navItems.map((item) => (
             <button
