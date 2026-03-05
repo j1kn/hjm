@@ -31,9 +31,9 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
         ? 'bg-charcoal/95 backdrop-blur-lg border-b border-white/10'
         : 'bg-transparent'
-        } h-48 lg:h-80`}
+        } h-28 lg:h-80`}
     >
-      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 h-full">
+      <div className="w-full px-3 sm:px-6 lg:px-8 xl:px-12 h-full">
         <div className="flex items-center justify-between h-full relative">
           {/* Logo - Left aligned */}
           <div className="z-10 flex items-center h-full">
@@ -44,7 +44,7 @@ const Header = () => {
               <img
                 src="/logo.png"
                 alt="HJM Transport"
-                className="h-32 lg:h-64 w-auto logo-img"
+                className="h-20 lg:h-64 w-auto logo-img"
               />
             </button>
           </div>

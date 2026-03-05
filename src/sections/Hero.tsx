@@ -21,7 +21,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal to-surface" />
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 xl:px-12 pt-80 lg:pt-96 pb-20">
+      <div className="relative z-10 min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 xl:px-12 pt-36 lg:pt-96 pb-20">
         <div className="max-w-7xl mx-auto w-full">
           {/* Mobile: Image on top, Desktop: Image on right */}
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
