@@ -44,7 +44,7 @@ function App() {
           <img
             src="/logo.png"
             alt="HJM Transport"
-            className={`h-48 lg:h-64 w-auto logo-img splash-logo ${splashPhase === 'exiting' ? 'splash-logo-exit' : ''
+            className={`w-full h-full object-contain logo-img splash-logo ${splashPhase === 'exiting' ? 'splash-logo-exit' : ''
               }`}
           />
         </div>
