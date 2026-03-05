@@ -44,7 +44,7 @@ const Header = () => {
               <img
                 src="/logo.png"
                 alt="HJM Transport"
-                className="h-20 lg:h-64 w-auto logo-img"
+                className="h-[104px] lg:h-64 w-auto logo-img"
               />
             </button>
           </div>
