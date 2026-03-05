@@ -31,53 +31,56 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
         ? 'bg-charcoal/95 backdrop-blur-lg border-b border-white/10'
         : 'bg-transparent'
-        }`}
+        } h-48 lg:h-80`}
     >
-      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div className="flex items-center justify-between h-72 lg:h-96">
-          {/* Logo */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center"
-          >
-            <img
-              src="/logo.png"
-              alt="HJM Transport"
-              className="h-48 lg:h-72 w-auto logo-img transition-transform duration-300 hover:scale-105"
-            />
-          </button>
+      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 h-full">
+        <div className="flex items-center justify-between h-full relative">
+          {/* Logo - Left aligned */}
+          <div className="z-10 flex items-center h-full">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center transition-transform hover:scale-105 duration-300"
+            >
+              <img
+                src="/logo.png"
+                alt="HJM Transport"
+                className="h-32 lg:h-64 w-auto logo-img"
+              />
+            </button>
+          </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-10">
+          {/* Desktop Nav - Absolute Centered */}
+          <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-12">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-off-white/80 hover:text-amber transition-colors text-lg font-semibold tracking-wide"
+                className="text-off-white/90 hover:text-amber transition-all text-xl font-black uppercase tracking-tighter hover:scale-110 active:scale-95 px-2"
               >
                 {item.label}
               </button>
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:block">
+          {/* Right Section (Desktop: CTA, Mobile: Call Now) */}
+          <div className="flex items-center justify-end z-10">
+            {/* Desktop Only CTA */}
             <button
               onClick={() => scrollToSection('contact')}
-              className="btn-primary text-lg px-8 py-3"
+              className="hidden lg:block btn-primary text-xl px-12 py-4 font-black uppercase tracking-tight shadow-[0_0_50px_rgba(242,179,61,0.1)] hover:shadow-amber/30 transition-all active:scale-95"
             >
               Get a quote
             </button>
-          </div>
 
-          {/* Mobile Call Now Button */}
-          <a
-            href="tel:+447387344777"
-            className="lg:hidden btn-primary flex items-center gap-2 text-base py-3 px-6"
-          >
-            <Phone size={18} />
-            Call Now
-          </a>
+            {/* Mobile Only Call Now */}
+            <a
+              href="tel:+447387344777"
+              className="lg:hidden btn-primary flex items-center gap-3 text-base py-3.5 px-6 font-black uppercase tracking-tight shadow-2xl active:scale-95"
+            >
+              <Phone size={20} className="fill-current" />
+              CALL
+            </a>
+          </div>
         </div>
       </div>
     </header>
