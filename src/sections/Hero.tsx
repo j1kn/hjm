@@ -21,11 +21,11 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal to-surface" />
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 xl:px-12 pt-20 pb-20">
+      <div className="relative z-10 min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 xl:px-12 pt-80 lg:pt-96 pb-20">
         <div className="max-w-7xl mx-auto w-full">
           {/* Mobile: Image on top, Desktop: Image on right */}
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            
+
             {/* Image - Shows on top for mobile, right for desktop */}
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
               <div className="relative w-full max-w-lg">
@@ -37,7 +37,7 @@ const Hero = () => {
                     alt="HJM Transport Truck"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
-                  
+
                   {/* Subtle overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-transparent to-transparent" />
                 </div>
@@ -75,7 +75,7 @@ const Hero = () => {
 
               {/* Subheadline */}
               <p className="text-body text-muted-text max-w-lg leading-relaxed">
-                Professional freight solutions for businesses across the United Kingdom. 
+                Professional freight solutions for businesses across the United Kingdom.
                 From same-day deliveries to long-distance haulage, we keep your supply chain moving.
               </p>
 
