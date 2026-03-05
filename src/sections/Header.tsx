@@ -34,7 +34,7 @@ const Header = () => {
         }`}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div className="flex items-center justify-between h-48 lg:h-72">
+        <div className="max-w-7xl mx-auto flex items-center justify-between h-56 lg:h-80">
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -48,12 +48,12 @@ const Header = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-10">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-off-white/80 hover:text-amber transition-colors text-sm font-medium tracking-wide"
+                className="text-off-white/80 hover:text-amber transition-colors text-lg font-semibold tracking-wide"
               >
                 {item.label}
               </button>
@@ -64,7 +64,7 @@ const Header = () => {
           <div className="hidden lg:block">
             <button
               onClick={() => scrollToSection('contact')}
-              className="btn-primary text-sm"
+              className="btn-primary text-lg px-8 py-3"
             >
               Get a quote
             </button>
@@ -73,9 +73,9 @@ const Header = () => {
           {/* Mobile Call Now Button */}
           <a
             href="tel:+447387344777"
-            className="lg:hidden btn-primary flex items-center gap-2 text-sm py-2.5 px-4"
+            className="lg:hidden btn-primary flex items-center gap-2 text-base py-3 px-6"
           >
-            <Phone size={16} />
+            <Phone size={18} />
             Call Now
           </a>
         </div>
